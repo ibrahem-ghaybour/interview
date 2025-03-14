@@ -1,11 +1,11 @@
 <template>
   <Transition name="overlay">
-    <div
-      v-show="isOpen"
-      class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-      @click.self="close"
-    >
-      <Transition name="popup">
+    <Teleport to="body">
+      <div
+        v-if="isOpen"
+        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+        @click.self="close"
+      >
         <div
           v-if="isOpen"
           :class="[
@@ -15,29 +15,17 @@
             parentClass,
           ]"
         >
-          <!-- <button
-            @click="close"
-            class="absolute top-2 right-2 text-2xl leading-none hover:opacity-40 opacity-60 text-primaryText transition-colors duration-200"
-          >
-            <font-awesome-icon icon="circle-xmark" />
-          </button> -->
           <CoreCloseButton
             class="rounded-full border w-7 h-7 text-[14px] flex justify-center items-center"
             @click="close"
           ></CoreCloseButton>
           <slot></slot>
-        </div>
-      </Transition>
-    </div>
+        </div></div
+    ></Teleport>
   </Transition>
 </template>
 
 <script setup>
-// <i class="fa-regular fa-circle-xmark"></i>
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-library.add(faCircleXmark);
 const props = defineProps({
   isOpen: {
     type: Boolean,
@@ -67,23 +55,5 @@ const close = () => {
 .overlay-enter-from,
 .overlay-leave-to {
   opacity: 0;
-}
-
-// Popup content transitions
-.popup-enter-active,
-.popup-leave-active {
-  transition: all 0.3s ease;
-}
-
-.popup-enter-from,
-.popup-leave-to {
-  opacity: 0;
-  transform: scale(2);
-}
-
-.popup-enter-to,
-.popup-leave-from {
-  opacity: 1;
-  transform: scale(1);
 }
 </style>
