@@ -1,5 +1,22 @@
 <template>
-  <div class="bg-[red]">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quae totam ut itaque aspernatur assumenda quam, vel maxime repellendus nostrum in accusantium, saepe autem voluptatum reprehenderit laboriosam architecto nisi laudantium!
+  <div>
+    <NuxtLayout>
+      <Transition name="fade" mode="out-in">
+        <div>
+          <NuxtPage />
+        </div>
+      </Transition>
+    </NuxtLayout>
   </div>
 </template>
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: scale(0.8);
+}
+</style>
