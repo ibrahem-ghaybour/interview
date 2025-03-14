@@ -1,0 +1,30 @@
+// #2B2D31
+:root {
+  --sidebar: #2b2d31;
+  --primary: #313338;
+  --primaryText: #dbdee1;
+  --input: #1e1f22;
+  --blog: #393c41;
+}
+* {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    margin:20px 0px;
+  }
+}
+body {
+  @apply text-primaryText bg-sidebar;
+  input,
+  textarea {
+    @apply bg-input outline-none py-2 px-3;
+  }
+}

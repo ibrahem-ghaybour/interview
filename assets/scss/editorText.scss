@@ -1,0 +1,25 @@
+/* Toolbar background & button color */
+.ql-toolbar {
+  background-color: var(--input); /* dark background */
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  border: none !important;
+}
+
+.ql-toolbar button {
+  color: #fff; /* icon color */
+}
+
+.ql-toolbar button:hover {
+  background-color: var(--primary); /* hover background */
+}
+
+/* Editor container */
+.ql-container {
+  background-color: var(--input); /* editor background */
+  border: none !important;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+ 
+}
+@import "@/assets/scss/textSi.scss";
