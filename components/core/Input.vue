@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <label class="block w-full mb-1 font-semibold !text-[0.7rem]" :for="forId">
+    <label v-if="label" class="block w-full mb-1 font-semibold !text-[0.7rem]" :for="forId">
       {{ label }}
     </label>
     <input
